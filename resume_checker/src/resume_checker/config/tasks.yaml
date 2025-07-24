@@ -1,0 +1,49 @@
+report_task:
+  description: >
+    Your job is to:
+      1. Parse the {jd_text} to extract:
+      2. For each and every resume in the dictionary {resume_text}, compute a normalized score (0-100) using:
+      3. Rank all the candidates by score (highest to lowest).
+      4. Emit a full Markdown report with:
+         ### 1. Job Overview
+         ### 2. Quick Ranking Table  
+         ### 3. Candidate Profiles
+         ### 4. Next Steps
+      5. 🔥 At the end of the markdown, output a JSON block wrapped in triple backticks like this:
+
+         json
+         {
+           "job_title": "(Job Title)",
+           "candidates": [
+             {
+               "name": "(Candidate Name)",
+               "score": (overall score as number),
+               "fit_indicator": "🟢 or 🟡 or 🔴",
+               "top_strength_1": "(First top strength)",
+               "top_strength_2": "(Second top strength)",
+               "primary_gap_1": "(First primary gap)",
+               "primary_gap_2": "(Second primary gap)",
+               "skill_match": (Skill Match score as number),
+               "experience": (Experience score as number),
+               "education": (Education score as number),
+               "culture_fit": (Culture Fit score as number),
+               "keywords": (Keywords score as number),
+               "email": "(if present, else empty)",
+               "fit_summary": "(2-3 sentence fit summary)"
+             }
+           ]
+         }
+
+  expected_output: >
+    Full Markdown report containing:
+    - Job overview
+    - Ranking table
+    - Detailed candidate profiles with:
+      - Component score table
+      - Two top strengths
+      - Two primary gaps
+      - Fit summary
+    - Next steps recommendations.
+
+  agent: recruiter_agent
+  input: "{resume_text}"
