@@ -30,8 +30,26 @@ if "jd_text" not in st.session_state:
 # =========================================
 # 🎯 MAIN APP AFTER LOGIN
 # =========================================
-st.set_page_config(page_title="Resume Screening App", layout="centered")
-st.title("🧠 Resume Screening")
+st.title("📄 Resume Screening AI")
+st.subheader("Empowering Recruiters with Agentic Intelligence")
+
+st.set_page_config(
+    page_title="Resume Screening AI",
+    page_icon="🧠",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #f9f9f9;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # ==== Sidebar Upload ====
 with st.sidebar:
@@ -72,7 +90,12 @@ if st.button("▶ Run Screening in Batches"):
     if not unique_resumes or not jd_text:
         st.warning("⚠ Upload at least one resume and enter the job description.")
     else:
+
         with st.spinner("Processing resumes in batches...", show_time=True):
+
+            from datetime import datetime
+            st.caption(f"🕒 Last run: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
 
             UPLOAD_DIR = "uploaded_resumes"
             RESULT_DIR = "batch_results"
@@ -176,22 +199,22 @@ if st.button("📥 Generate Final Table"):
             for _, row in df.iterrows():
                 st.markdown(f"### 🔍 {row['name']} ({row['fit_indicator']}) - Score: {row['score']}")
 
-                st.markdown(f"*Fit Summary:* {row.get('fit_summary', '')}")
+                st.markdown(f"Fit Summary: {row.get('fit_summary', '')}")
 
-                st.markdown("*Component Scores:*")
+                st.markdown("Component Scores:")
                 st.markdown(f"""
                 | Skill Match | Experience | Education | Culture Fit | Keywords |
                 |--------------|------------|-----------|-------------|----------|
                 | {row.get('skill_match', '')} | {row.get('experience', '')} | {row.get('education', '')} | {row.get('culture_fit', '')} | {row.get('keywords', '')} |
                 """)
 
-                st.markdown("*Top Strengths:*")
+                st.markdown("Top Strengths:")
                 st.markdown(f"""
                 1. {row.get('top_strength_1', '')}  
                 2. {row.get('top_strength_2', '')}
                 """)
 
-                st.markdown("*Primary Gaps:*")
+                st.markdown("Primary Gaps:")
                 st.markdown(f"""
                 1. {row.get('primary_gap_1', '')}  
                 2. {row.get('primary_gap_2', '')}
@@ -234,6 +257,3 @@ if st.button("🗑 Clear All Data and Start New Screening"):
     st.success("🗑 Cleared all resumes, JD, and previous results.")
 
     st.rerun()
-
-
-
