@@ -1,15 +1,29 @@
 report_task:
   description: >
-    Your job is to:
-      1. Parse the {jd_text} to extract:
-      2. For each and every resume in the dictionary {resume_text}, compute a normalized score (0-100) using:
-      3. Rank all the candidates by score (highest to lowest).
-      4. Emit a full Markdown report with:
-         ### 1. Job Overview
-         ### 2. Quick Ranking Table  
-         ### 3. Candidate Profiles
-         ### 4. Next Steps
-      5. 🔥 At the end of the markdown, output a JSON block wrapped in triple backticks like this:
+    You are tasked with generating a comprehensive resume screening report based on the provided job description ({jd_text}) and a dictionary of resumes ({resume_text}). Please follow the steps below:
+
+      1. Analyze and summarize the key requirements, skills, and qualifications from the job description.
+      2. Evaluate *each candidate* in the resume dictionary by calculating a normalized score (0–100) based on multiple fit dimensions.
+      3. Sort and rank all candidates from highest to lowest score.
+      4. Construct a complete *Markdown report* that includes:
+
+         ### 1. 📌 Job Overview
+         - Summary of the position, required skills, and qualifications
+
+         ### 2. 🏆 Candidate Ranking Table
+         - A quick comparison of all candidates, sorted by score
+
+         ### 3. 🧑‍💼 Individual Candidate Profiles
+         - Detailed evaluations with:
+           - Component-wise scores
+           - Two key strengths
+           - Two key improvement areas
+           - Summary of overall fit
+
+         ### 4. 🔍 Suggested Next Steps
+         - Recommended actions (e.g., shortlist, consider for other roles, reject)
+
+      5. 🔧 At the *end* of the markdown report, append a structured JSON block (enclosed in triple backticks) as shown below:
 
          json
          {
@@ -29,21 +43,18 @@ report_task:
                "culture_fit": (Culture Fit score as number),
                "keywords": (Keywords score as number),
                "email": "(if present, else empty)",
-               "fit_summary": "(2-3 sentence fit summary)"
+               "fit_summary": "(Concise summary of candidate's suitability - 2 to 3 sentences)"
              }
            ]
          }
 
   expected_output: >
-    Full Markdown report containing:
-    - Job overview
-    - Ranking table
-    - Detailed candidate profiles with:
-      - Component score table
-      - Two top strengths
-      - Two primary gaps
-      - Fit summary
-    - Next steps recommendations.
+    A structured and well-formatted Markdown report that includes:
+    - A concise overview of the job
+    - A ranking table of all candidates
+    - In-depth profiles with breakdown of individual scores, strengths, gaps, and fit summary
+    - Actionable next step recommendations
+
 
   agent: recruiter_agent
   input: "{resume_text}"
