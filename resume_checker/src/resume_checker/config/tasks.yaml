@@ -4,8 +4,7 @@ report_task:
 
       1. Analyze and summarize the key requirements, skills, and qualifications from the job description.
       2. Evaluate *each candidate* in the resume dictionary by calculating a normalized score (0–100) based on multiple fit dimensions.
-      3. Sort and rank all candidates from highest to lowest score.
-      4. Construct a complete *Markdown report* that includes:
+      3. Construct a complete *Markdown report* that includes:
 
          ### 1. 📌 Job Overview
          - Summary of the position, required skills, and qualifications
