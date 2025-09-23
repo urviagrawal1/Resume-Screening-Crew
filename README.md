@@ -3,6 +3,8 @@
 
 Resume Screening AI is an end-to-end intelligent system that evaluates resumes in bulk using CrewAI agents and OpenAI's GPT-4o. It automates candidate screening by assessing skill match, experience, education, and more — and generates structured reports with detailed analysis and recommendations.
 
+⚠️ Note: This project was developed as part of my internship work. For confidentiality reasons, the complete source code is not posted here, and certain parts have been modified/removed to respect company policies.
+
 ##  **Features**  
 ✅ **Batch Resume Screening** – Processes up to 30 resumes in parallel, 10 per batch.  
 ✅ **CrewAI Agent based Evaluation** – Uses specialized agents to assess Skill Match, Experience, Education, Culture Fit & Keyword Alignment..  
