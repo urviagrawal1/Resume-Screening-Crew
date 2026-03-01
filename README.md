@@ -9,7 +9,7 @@ Resume Screening AI is an end-to-end intelligent system that evaluates resumes i
 ✅ **Batch Resume Screening** – Processes up to 30 resumes in parallel, 10 per batch.  
 ✅ **CrewAI Agent based Evaluation** – Uses specialized agents to assess Skill Match, Experience, Education, Culture Fit & Keyword Alignment..  
 ✅ **Final Markdown Summary** – Compiles rankings, scores, and recommendations into a comprehensive markdown report.   
-✅ **Interactive UI** – User-friendly Streamlit dashboard for seamless stock analysis.  
+✅ **Interactive UI** – User-friendly Streamlit dashboard for seamless analysis.  
 
 ## **Installation**  
 ### **1️⃣ Clone the Repository**  
